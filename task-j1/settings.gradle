@@ -1,0 +1,4 @@
+rootProject.name = 'task-j1'
+include 'key_server'
+include 'key_client'
+include 'common'

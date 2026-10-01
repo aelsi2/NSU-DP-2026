@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'ru.nsu.aeliseev2.taskj1'
+version = '1.0-SNAPSHOT'
+
+application {
+    mainClass = 'ru.nsu.aeliseev2.taskj1.keyserver.Application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':common')
+    implementation 'org.bouncycastle:bcprov-jdk18on:1.86'
+    implementation 'org.bouncycastle:bcpkix-jdk18on:1.86'
+    testImplementation platform('org.junit:junit-bom:6.0.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
+}

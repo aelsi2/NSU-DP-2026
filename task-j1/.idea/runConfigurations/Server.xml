@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Server" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="ru.nsu.aeliseev2.taskj1.keyserver.Application" />
+    <module name="task-j1.key_server.main" />
+    <option name="PROGRAM_PARAMETERS" value="0.0.0.0:7777 KeyServer 1" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
