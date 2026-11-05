@@ -91,13 +91,9 @@
 
         wares-in-buffer (get buffer ware 0)
         wares-to-retrieve (- (get bill ware 0) wares-in-buffer)
-        ;; limit how much we take by how much was added, or else safes won't be produced
-        wares-to-retrieve (min wares-to-retrieve amount)
 
-        buffer (assoc buffer ware (try
-                                    (swap! storage-atom #(- % wares-to-retrieve))
-                                    (+ wares-in-buffer wares-to-retrieve)
-                                    (catch IllegalStateException _ wares-in-buffer)))
+        buffer (assoc buffer ware (let [[old new] (swap-vals! storage-atom #(- % (min % wares-to-retrieve)))]
+                                    (+ wares-in-buffer (- old new))))
 
         enough-in-buffer (every? (fn [[bill-ware bill-value]] (= (get buffer bill-ware 0) bill-value)) bill)
 
